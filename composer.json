@@ -2,7 +2,7 @@
     "name": "phodobit/kartriderapiwrapper",
     "description": "KartRider API Wrapper for PHP",
     "type": "library",
-    "version": "1.0.0-dev",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "Phodobit",
