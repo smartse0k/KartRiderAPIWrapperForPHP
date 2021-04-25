@@ -1,15 +1,16 @@
 <?php
 
-namespace Phodobit\Kartrider\Api;
+namespace Phodobit\Kartrider\Api\Request;
 
-class Request
+class Base
 {
     /**
      * @param string $url
      * @param array $parameterList
      * @return string
      */
-    protected function curl(string $url, array $parameterList = []) {
+    protected function curl(string $url, array $parameterList = [])
+    {
         $urlWithParams = $url;
 
         if(!empty($parameterList)) {
