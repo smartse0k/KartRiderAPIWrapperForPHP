@@ -64,7 +64,7 @@ class Base
         $headerList = array(
             "Authorization: {$this->_apiKey}",
         );
-        
+
         $this->curl($urlWithParams, $headerList);
 
         if(isset($this->_responseInfo['http_code'])) {
