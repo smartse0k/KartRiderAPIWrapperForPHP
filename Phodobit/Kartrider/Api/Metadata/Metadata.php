@@ -34,7 +34,7 @@ class Metadata
         $this->directory = $dataDirectory;
         $this->database = array();
         foreach(self::DATA_TYPE_LIST as $type) {
-            $this->database[$type] = array();
+            $this->database[$type] = null;
         }
     }
 
