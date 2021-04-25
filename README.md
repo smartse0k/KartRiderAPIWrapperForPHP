@@ -22,9 +22,14 @@ https://developers.nexon.com/kart
 // 라이더명으로 유저 정보 조회 API 사용
 $findUserByNickname = new \Phodobit\Kartrider\Api\Request\User\FindUserByNickname();
 
-// 필수 요청 정보 Setting
+$apiKey = '';
 $userNickname = '포도빛향기에';
+
+// 필수 요청 정보 Setting
 $findUserByNickname->setNickname($userNickname);
+
+// API 키 설정
+$findUserByNickName->setApiKey($apiKey);
 
 // API 요청
 $findUserByNickname->send();
@@ -43,9 +48,11 @@ echo "{$userNickname}님의 레벨은 {$findUserByNickNameResult->getLevel()}입
 // 라이더명으로 유저 정보 조회 API 사용
 $findUserByNickname = new \Phodobit\Kartrider\Api\Request\User\FindUserByNickname();
 
+$apiKey = '';
 $userNickname = '포도빛향기에';
 
 $findUserByNickNameResult = $findUserByNickname->setNickname($userNickname)
+                            ->setApiKey($apiKey)
                             ->send()
                             ->getResult();
 
