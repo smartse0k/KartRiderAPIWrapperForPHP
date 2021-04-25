@@ -151,10 +151,10 @@ class MatchInfo extends Base
         $this->character = $json->character ?? null;
         $this->startTime = $json->startTime ?? null;
         $this->endTime = $json->endTime ?? null;
-        $this->playTime = isset($json->playTime) ? intval($json->playTime) : null;
+        $this->playTime = $json->playTime ?? null;
         $this->channelName = $json->channelName ?? null;
         $this->trackId = $json->trackId ?? null;
-        $this->playerCount = isset($json->playerCount) ? intval($json->playerCount) : null;
+        $this->playerCount = $json->playerCount ?? null;
 
         if(isset($json->player)) {
             $player = new Player();
