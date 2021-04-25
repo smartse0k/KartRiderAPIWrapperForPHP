@@ -6,22 +6,22 @@ use Phodobit\Kartrider\Api\Model\User\User;
 use Phodobit\Kartrider\Api\Request\Base;
 
 /**
- * Class FindUserByNickname
+ * Class FindUserByAccessId
  * @package Phodobit\Kartrider\Api\Request\User
  *
- * 라이더명으로 유저 정보 조회
+ * 유저 고유 식별자로 라이더명 조회
  */
-class FindUserByNickname extends Base
+class FindUserByAccessId extends Base
 {
-    const requestApiUrl = 'https://api.nexon.co.kr/kart/v1.0/users/nickname/{nickname}';
+    const requestApiUrl = 'https://api.nexon.co.kr/kart/v1.0/users/{access_id}';
 
     /**
-     * @param string $nickname
+     * @param string $accessId
      * @return $this
      */
-    public function setNickname(string $nickname)
+    public function setAccessId(string $accessId)
     {
-        $this->_requestUrlParameterList['nickname'] = $nickname;
+        $this->_requestUrlParameterList['access_id'] = $accessId;
         return $this;
     }
 
