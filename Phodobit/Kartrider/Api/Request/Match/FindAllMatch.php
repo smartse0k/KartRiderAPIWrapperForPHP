@@ -13,7 +13,7 @@ use Phodobit\Kartrider\Api\Request\Base;
  */
 class FindAllMatch extends Base
 {
-    const requestApiUrl = 'https://api.nexon.co.kr/kart/v1.0/matches/all';
+    const REQUEST_API_URL = 'https://api.nexon.co.kr/kart/v1.0/matches/all';
     // start_date={start_date}&end_date={end_date}&offset={offset}&limit={limit}&match_types={match_types}
 
     private $startDate = null;

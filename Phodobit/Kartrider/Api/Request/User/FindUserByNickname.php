@@ -13,7 +13,7 @@ use Phodobit\Kartrider\Api\Request\Base;
  */
 class FindUserByNickname extends Base
 {
-    const requestApiUrl = 'https://api.nexon.co.kr/kart/v1.0/users/nickname/{nickname}';
+    const REQUEST_API_URL = 'https://api.nexon.co.kr/kart/v1.0/users/nickname/{nickname}';
 
     private $nickname = null;
 

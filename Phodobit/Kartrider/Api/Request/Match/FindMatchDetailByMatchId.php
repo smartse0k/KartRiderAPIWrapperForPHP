@@ -13,7 +13,7 @@ use Phodobit\Kartrider\Api\Request\Base;
  */
 class FindMatchDetailByMatchId extends Base
 {
-    const requestApiUrl = 'https://api.nexon.co.kr/kart/v1.0/matches/{match_id}';
+    const REQUEST_API_URL = 'https://api.nexon.co.kr/kart/v1.0/matches/{match_id}';
 
     private $matchId = null;
 

@@ -13,7 +13,7 @@ use Phodobit\Kartrider\Api\Request\Base;
  */
 class FindUserByAccessId extends Base
 {
-    const requestApiUrl = 'https://api.nexon.co.kr/kart/v1.0/users/{access_id}';
+    const REQUEST_API_URL = 'https://api.nexon.co.kr/kart/v1.0/users/{access_id}';
 
     private $accessId = null;
 

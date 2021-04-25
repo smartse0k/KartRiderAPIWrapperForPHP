@@ -15,7 +15,7 @@ use Phodobit\Kartrider\Api\Exception\TooLongParameterException;
 
 class Base
 {
-    const requestApiUrl = null;
+    const REQUEST_API_URL = null;
 
     protected $_requestUrlParameterList = array();
     protected $_requestParameterList = array();
@@ -49,7 +49,7 @@ class Base
             throw new InvalidParameterException();
         }
 
-        $apiUrl = static::requestApiUrl;
+        $apiUrl = static::REQUEST_API_URL;
         foreach($this->_requestUrlParameterList as $key => $value)
         {
             $apiUrl = str_replace("{{$key}}", urlencode($value), $apiUrl);
