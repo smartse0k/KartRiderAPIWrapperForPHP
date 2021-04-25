@@ -17,7 +17,7 @@ class Match extends Base
      */
     public function getMatchType(): string
     {
-        return $this->$matchType;
+        return $this->matchType;
     }
 
     /**
