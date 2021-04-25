@@ -1,0 +1,19 @@
+{
+    "name": "phodobit/kartriderapiwrapper",
+    "description": "KartRider API Wrapper for PHP",
+    "type": "library",
+    "version": "1.0.0-dev",
+    "authors": [
+        {
+            "name": "Phodobit",
+            "email": "js940922@gmail.com",
+            "homepage": "https://phodobit.kr",
+            "role": "Developer"
+        }
+    ],
+
+    "require": {
+        "phpunit/phpunit": "^9.5",
+        "ext-curl": "*"
+    }
+}
