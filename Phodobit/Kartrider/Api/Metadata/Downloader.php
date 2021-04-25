@@ -29,12 +29,36 @@ class Downloader
         $this->zipFileFullPath = $directory . $zipFileName;
     }
 
-    public function install()
+    /**
+     * @param bool $skipWhenInstalled
+     */
+    public function install($skipWhenInstalled = true)
     {
+        if($skipWhenInstalled && $this->isInstalled()) {
+            return;
+        }
+
         $this->deleteZipFile();
         $this->download();
         $this->extract();
         $this->deleteZipFile();
+    }
+
+    /**
+     * @return bool
+     */
+    public function isInstalled()
+    {
+        $hasFile = true;
+        foreach(Metadata::DATA_TYPE_LIST as $type) {
+            $checkFilePath = $this->targetDirectory . $type . '.json';
+            if(!file_exists($checkFilePath)) {
+                $hasFile = false;
+                break;
+            }
+        }
+
+        return $hasFile;
     }
 
     private function extract()
