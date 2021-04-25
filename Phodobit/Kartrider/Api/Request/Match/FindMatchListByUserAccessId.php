@@ -102,7 +102,7 @@ class FindMatchListByUserAccessId extends Base
         $this->_requestParameterList['start_date'] = $this->startDate;
         $this->_requestParameterList['end_date'] = $this->endDate;
         $this->_requestParameterList['offset'] = $this->offset;
-        $this->_requestParameterList['start_date'] = $this->limit;
+        $this->_requestParameterList['limit'] = $this->limit;
         $this->_requestParameterList['match_types'] = $this->matchTypes;
 
         return parent::send();
