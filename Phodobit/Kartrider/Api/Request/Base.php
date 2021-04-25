@@ -57,14 +57,14 @@ class Base
 
         $urlWithParams = $apiUrl;
 
-        if(!empty($parameterList)) {
-            $urlWithParams .= '?' . http_build_query($parameterList);
+        if(!empty($this->_requestParameterList)) {
+            $urlWithParams .= '?' . http_build_query($this->_requestParameterList);
         }
 
         $headerList = array(
             "Authorization: {$this->_apiKey}",
         );
-
+        
         $this->curl($urlWithParams, $headerList);
 
         if(isset($this->_responseInfo['http_code'])) {
