@@ -2,3 +2,6 @@
 /vendor
 composer.phar
 composer.lock
+
+Phodobit/Kartrider/Api/Metadata/data/*
+!Phodobit/Kartrider/Api/Metadata/data/.gitkeep
