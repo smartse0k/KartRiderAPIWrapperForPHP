@@ -151,7 +151,20 @@ class MatchInfo extends Base
         $this->character = $json->character ?? null;
         $this->startTime = $json->startTime ?? null;
         $this->endTime = $json->endTime ?? null;
-        $this->playTime = $json->playTime ?? null;
+
+        $playTime = 0;
+        if(isset($json->playTime)) {
+            $playTime = $json->playTime;
+        } else {
+            // 가이드에선 playTime을 주기로 되어있는데 주지 않는 경우가 있기에 직접 계산한다.
+            if(isset($this->startTime) && isset($this->endTime)) {
+                $startTime = strtotime($this->startTime);
+                $endTime = strtotime($this->endTime);
+                $playTime = $endTime - $startTime;
+            }
+        }
+        $this->playTime = $playTime;
+
         $this->channelName = $json->channelName ?? null;
         $this->trackId = $json->trackId ?? null;
         $this->playerCount = $json->playerCount ?? null;
