@@ -4,6 +4,15 @@ namespace Phodobit\Kartrider\Api\Metadata;
 
 class Metadata
 {
+    const DATA_TYPE_LIST = array(
+        'character',
+        'flyingPet',
+        'gameType',
+        'kart',
+        'pet',
+        'track',
+    );
+
     private $directory;
 
     private $database;
@@ -23,14 +32,10 @@ class Metadata
         }
 
         $this->directory = $dataDirectory;
-        $this->database = array(
-            'character'=> null,
-            'flyingPet'=> null,
-            'gameType'=> null,
-            'kart'=> null,
-            'pet'=> null,
-            'track'=> null,
-        );
+        $this->database = array();
+        foreach(self::DATA_TYPE_LIST as $type) {
+            $this->database[] = $type;
+        }
     }
 
     /**
