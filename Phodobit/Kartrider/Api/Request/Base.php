@@ -2,6 +2,7 @@
 
 namespace Phodobit\Kartrider\Api\Request;
 
+use Phodobit\Kartrider\Api\Exception\BrokenDataException;
 use Phodobit\Kartrider\Api\Exception\DisallowAccessTokenException;
 use Phodobit\Kartrider\Api\Exception\DisallowServiceException;
 use Phodobit\Kartrider\Api\Exception\InternalServerErrorException;
@@ -21,6 +22,7 @@ class Base
     private $_apiKey = null;
     protected $_responseInfo = null;
     protected $_responseData = null;
+    protected $_responseJson = null;
 
     public function setApiKey(string $key)
     {
@@ -39,6 +41,7 @@ class Base
      * @throws NotSupportApiException
      * @throws TokenLimitExceedException
      * @throws TooLongParameterException
+     * @throws BrokenDataException
      */
     public function send()
     {
@@ -106,6 +109,11 @@ class Base
                     throw new InternalServerTimeoutException();
                     break;
             }
+        }
+
+        $this->_responseJson = json_decode($this->_responseData, false);
+        if(json_last_error() !== JSON_ERROR_NONE) {
+            throw new BrokenDataException();
         }
 
         return $this;
