@@ -15,14 +15,35 @@ class FindUserByNickname extends Base
 {
     const requestApiUrl = 'https://api.nexon.co.kr/kart/v1.0/users/nickname/{nickname}';
 
+    private $nickname = null;
+
     /**
      * @param string $nickname
      * @return $this
      */
     public function setNickname(string $nickname)
     {
-        $this->_requestUrlParameterList['nickname'] = $nickname;
+        $this->nickname = $nickname;
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function checkParameter()
+    {
+        if(is_null($this->nickname)) {
+            return false;
+        }
+
+        return parent::checkParameter();
+    }
+
+    public function send()
+    {
+        $this->_requestUrlParameterList['nickname'] = $this->nickname;
+
+        return parent::send();
     }
 
     /**

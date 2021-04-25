@@ -15,14 +15,35 @@ class FindUserByAccessId extends Base
 {
     const requestApiUrl = 'https://api.nexon.co.kr/kart/v1.0/users/{access_id}';
 
+    private $accessId = null;
+
     /**
      * @param string $accessId
      * @return $this
      */
     public function setAccessId(string $accessId)
     {
-        $this->_requestUrlParameterList['access_id'] = $accessId;
+        $this->accessId = $accessId;
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function checkParameter()
+    {
+        if(is_null($this->accessId)) {
+            return false;
+        }
+
+        return parent::checkParameter();
+    }
+
+    public function send()
+    {
+        $this->_requestUrlParameterList['access_id'] = $this->accessId;
+
+        return parent::send();
     }
 
     /**

@@ -122,7 +122,7 @@ class Base
     /**
      * @return bool
      */
-    protected function checkParameter()
+    public function checkParameter()
     {
         if(is_null($this->_apiKey)) {
             return false;
