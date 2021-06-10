@@ -6,6 +6,9 @@ use Phodobit\Kartrider\Api\Model\Base;
 
 class Player extends Base
 {
+    /** @var int $accountNo */
+    private $accountNo;
+
     /** @var string $character */
     private $character;
 
@@ -33,7 +36,7 @@ class Player extends Base
     /** @var string $partsKit */
     private $partsKit;
 
-    /** @var string $matchRank */
+    /** @var int $matchRank */
     private $matchRank;
 
     /** @var string $matchWin */
@@ -53,6 +56,14 @@ class Player extends Base
 
     /** @var string $characterName */
     private $characterName;
+
+    /**
+     * @return int
+     */
+    public function getAccountNo(): int
+    {
+        return $this->accountNo;
+    }
 
     /**
      * @return string
@@ -127,9 +138,9 @@ class Player extends Base
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getMatchRank(): string
+    public function getMatchRank(): int
     {
         return $this->matchRank;
     }
@@ -187,6 +198,7 @@ class Player extends Base
      */
     public function setDataFromJsonObject($json)
     {
+        $this->accountNo = intval($json->accountNo ?? 0);
         $this->character = $json->character ?? null;
         $this->kart = $json->kart ?? null;
         $this->license = $json->license ?? null;
@@ -196,7 +208,7 @@ class Player extends Base
         $this->partsHandle = $json->partsHandle ?? null;
         $this->partsWheel = $json->partsWheel ?? null;
         $this->partsKit = $json->partsKit ?? null;
-        $this->matchRank = $json->matchRank ?? null;
+        $this->matchRank = intval($json->matchRank ?? 0);
         $this->matchWin = $json->matchWin ?? null;
         $this->matchTime = $json->matchTime ?? null;
         $this->matchRetired = $json->matchRetired ?? null;
