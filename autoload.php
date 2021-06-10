@@ -1,6 +1,9 @@
 <?php
-include_once dirname(__FILE__) . '/vendor/autoload.php';
-
 spl_autoload_register(function($class) {
-    include_once dirname(__FILE__) . "/{$class}.php";
+    $class = str_replace('\\', '/', $class);
+
+    $path = dirname(__FILE__) . "/{$class}.php";
+    if(file_exists($path)) {
+        include_once $path;
+    }
 });
