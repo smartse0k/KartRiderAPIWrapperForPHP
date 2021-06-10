@@ -21,7 +21,7 @@ class AllMatch extends Base
     }
 
     /**
-     * @return Match[]
+     * @return string[]
      */
     public function getMatches(): array
     {

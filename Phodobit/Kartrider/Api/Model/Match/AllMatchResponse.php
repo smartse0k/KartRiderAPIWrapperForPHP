@@ -10,7 +10,7 @@ class AllMatchResponse extends Base
     private $matches;
 
     /**
-     * @return Match[]
+     * @return AllMatch[]
      */
     public function getMatches(): array
     {
